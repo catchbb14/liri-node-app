@@ -1,8 +1,8 @@
 ```js
 # Spotify API keys
 
-SPOTIFY_ID=your-spotify-id
-SPOTIFY_SECRET=your-spotify-secret
+SPOTIFY_ID=a19f9971eab34073a6f0776fb76b2648
+SPOTIFY_SECRET=70a17a4a390f464ca62f63c3011bcfe6
 
 # Twitter API keys
 
