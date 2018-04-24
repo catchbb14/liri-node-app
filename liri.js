@@ -1,3 +1,4 @@
+// Initialized pointers to required functions 
 var dotEnv = require("dotenv").config();
 var request = require('request');
 var Twitter = require("twitter");
@@ -5,19 +6,21 @@ var Spotify = require('node-spotify-api');
 var fs = require("fs");
 var keys = require("./keys.js");
 
+// Populated and stored appropriate keys
 var client = new Twitter(keys.twitter);
 var spotify = new Spotify(keys.spotify);
 var omdbKey = keys.omdb.key;
 
 
-
+// Created constants to test against input.
 const TWEETS = 'my-tweets';
 const SPOTIFY_THIS_SONG = 'spotify-this-song';
 const MOVIE_THIS = 'movie-this';
 const DO_IT = 'do-what-it-says';
 
+/** Function to retrieve and log last twenty tweets **/
 function getTweets() {
-    var params = {screen_name: 'nodejs'};
+    
     client.get('statuses/user_timeline', function(error, data, response) {
         if (!error) {
           var tweets = data;
@@ -34,6 +37,11 @@ function getTweets() {
       });
 }
 
+/**
+ * Function serves to retrieve song information from Spotify
+ * and log respective data.
+ * @param {*} song_title: Song to retrieve from Spotify
+ */
 function getSong(song_title) {
     var title = song_title.join(" ");
     if(title === "") {
@@ -54,6 +62,10 @@ function getSong(song_title) {
 
 }
 
+/**
+ * Serves to retrieve data from OMDB and log the respective data.
+ * @param {*} movie_title : Movie title to search for
+ */
 function getMovie(movie_title) {
     var title = movie_title.join("+");
     if(title === "") {
@@ -78,6 +90,9 @@ function getMovie(movie_title) {
 
 }
 
+/**
+ * Reads 'random.txt' and passes commands to the argumentHandler()
+ */
 function doIt() {
     fs.readFile("random.txt", "utf-8", function(error, data) {
         if(error) {
@@ -88,7 +103,11 @@ function doIt() {
     })
 }
 
-
+/**
+ * Determines from the first element in the args array which action
+ * to perform and passes the appropriate arguments.
+ * @param {*} args : Array that contains a task and sometimes title.
+ */
 function argumentHandler(args) {
     var arguments = args;
     
@@ -110,8 +129,7 @@ function argumentHandler(args) {
     }
 }
 
-
-var arguments = process.argv
-        .splice(2, process.argv.length -2)
-
-argumentHandler(arguments);
+// Initializes the code by calling argumentHandler with the appropriate
+// parameters from command-line.
+argumentHandler(process.argv
+    .splice(2, process.argv.length -2));
