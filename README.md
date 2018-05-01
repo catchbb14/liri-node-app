@@ -11,3 +11,15 @@ The user has four commands to choose from:
     This command utilizes the request package to perform a request to OMDB and displays the movie's title, year released, ratings language, plot and actors.
 4) node liri.js do-what-it-says
     This command parses the random.txt file in the working director utilizing the fs package. And logs the correct information.
+    
+    ## My Tweets
+    ![My-Tweets](https://github.com/catchbb14/liri-node-app/blob/master/images/my-tweets.PNG)
+    
+    ## Spotify This
+    (![My-Tweets](https://github.com/catchbb14/liri-node-app/blob/master/images/spotify.PNG))
+    
+    ## Movie This 
+    (![My-Tweets](https://github.com/catchbb14/liri-node-app/blob/master/images/movie-this.PNG))
+    
+    ## Do What It Says
+    (![My-Tweets](https://github.com/catchbb14/liri-node-app/blob/master/images/my-tweets.PNG))
